@@ -8,70 +8,51 @@ Overview
 
 This project demonstrates how to build and evaluate predictive models using advanced machine learning algorithms such as Decision Trees, Random Forests, XGBoost, CatBoost, and Neural Networks. The analytical framework covers:
 
-•
-Data preprocessing (imputation, scaling, and encoding)
+• Data preprocessing (imputation, scaling, and encoding)
 
-•
-Cluster-based train-test splitting (to ensure data integrity)
+• Cluster-based train-test splitting (to ensure data integrity)
 
-•
-Model training with cross-validation and nested hyperparameter tuning
+• Model training with cross-validation and nested hyperparameter tuning
 
-•
-Performance evaluation using accuracy, precision, recall, F1-score, and ROC AUC
+• Performance evaluation using accuracy, precision, recall, F1-score, and ROC AUC
 
-•
-Model interpretability through SHAP analysis
+• Model interpretability through SHAP analysis
+
+• Calibration assessment of predicted probabilities (calibration slope, CITL, O/E ratio, Brier score, and reliability diagrams)
 
 Repository Structure
 
-•
-notebooks/
-Contains Jupyter/Colab notebooks showcasing the code workflow. The notebooks are grouped as follows:
+• notebooks/ Contains Jupyter/Colab notebooks showcasing the code workflow. The notebooks are grouped as follows:
 
-•
-Permanent Teeth Analysis (CaCIA)
+• Permanent Teeth Analysis (CaCIA)
 
-•
-CaCIA_ML_FINAL_RESSUBMISSION.ipynb: Comprehensive analysis and modeling for the CaCIA trial dataset.
+• CaCIA_ML_FINAL_RESSUBMISSION.ipynb: Comprehensive analysis and modeling for the CaCIA trial dataset.
 
+• Primary Teeth Analysis (CARDEC-3)
 
+• CARDEC_ML_Global_FINAL_RESUBMISSION.ipynb: Analysis of global failures (any type) in the CARDEC-3 trial.
 
-•
-Primary Teeth Analysis (CARDEC-3)
+• CARDEC_REPLAC_ML_FINAL_RESUBMISSION.ipynb: Analysis of restoration replacements in the CARDEC-3 trial.
 
-•
-CARDEC_ML_Global_FINAL_RESUBMISSION.ipynb: Analysis of global failures (any type) in the CARDEC-3 trial.
+• supplementary/ Contains supplementary material with calibration metrics analysis for all models:
 
-•
-CARDEC_REPLAC_ML_FINAL_RESUBMISSION.ipynb: Analysis of restoration replacements in the CARDEC-3 trial.
+• CaCIA_Calibration.ipynb: Calibration analysis for the CaCIA trial (permanent teeth), including reliability diagrams, calibration slope, calibration-in-the-large (CITL), O/E ratio, and Brier score for all five models.
 
+• CARDEC_Global_Calibration.ipynb: Calibration analysis for the CARDEC-3 trial — any failure (primary teeth).
 
+• CARDEC_Replacement_Calibration.ipynb: Calibration analysis for the CARDEC-3 trial — replacement (primary teeth).
 
+• data/ Contains the datasets used in the analysis:
 
+• AllFinal_CaCIA_Prediction_ML.xlsx: Dataset for the CaCIA trial, including 501 restorations in permanent teeth.
 
-•
-data/
-Contains the datasets used in the analysis:
+• 2024_corrected_global_CARDEC_3_ML_Vitor.xlsx: Dataset for the CARDEC-3 trial (global analysis), including 637 restorations.
 
-•
-AllFinal_CaCIA_Prediction_ML.xlsx: Dataset for the CaCIA trial, including 501 restorations in permanent teeth.
+• 2024_corrected_subst_CARDEC_3_ML_Vitor.xlsx: Dataset for the CARDEC-3 trial (replacement analysis), including 637 restorations.
 
-•
-2024_corrected_global_CARDEC_3_ML_Vitor.xlsx: Dataset for the CARDEC-3 trial (global analysis), including 637 restorations.
+• src/ (Optional) Utility scripts for data preprocessing, model training, and evaluation that can be imported into your own projects.
 
-•
-2024_corrected_subst_CARDEC_3_ML_Vitor.xlsx: Dataset for the CARDEC-3 trial (replacement analysis), including 637 restorations.
-
-
-
-•
-src/
-(Optional) Utility scripts for data preprocessing, model training, and evaluation that can be imported into your own projects.
-
-•
-requirements.txt
-Lists the Python dependencies needed to run the notebooks.
+• requirements.txt Lists the Python dependencies needed to run the notebooks.
 
 Project Description
 
@@ -79,17 +60,15 @@ Analytical Approach
 
 The code demonstrates a comprehensive machine learning pipeline, including:
 
-•
-Data Splitting: A patient-level train-test split is used to maintain the integrity of the data clusters.
+• Data Splitting: A patient-level train-test split is used to maintain the integrity of the data clusters.
 
-•
-Preprocessing: Missing values are imputed using appropriate strategies, numerical features are scaled (using z-score normalization), and categorical variables are encoded with one-hot or ordinal encoding methods. Techniques like SMOTE are applied to address class imbalance where needed.
+• Preprocessing: Missing values are imputed using appropriate strategies, numerical features are scaled (using z-score normalization), and categorical variables are encoded with one-hot or ordinal encoding methods. Techniques like SMOTE are applied to address class imbalance where needed.
 
-•
-Model Development: Multiple algorithms are used to build predictive models. Each model is trained with cross-validation, with nested grid search for optimal hyperparameter selection, and evaluated using standard metrics (accuracy, sensitivity, specificity, F1-score, and ROC AUC).
+• Model Development: Multiple algorithms are used to build predictive models. Each model is trained with cross-validation, with nested grid search for optimal hyperparameter selection, and evaluated using standard metrics (accuracy, sensitivity, specificity, F1-score, and ROC AUC).
 
-•
-Interpretability: SHAP analysis is performed to provide insights into the impact of each predictor variable on model outcomes.
+• Interpretability: SHAP analysis is performed to provide insights into the impact of each predictor variable on model outcomes.
+
+• Calibration Assessment: Supplementary notebooks provide a detailed evaluation of the calibration of predicted probabilities for all models, including calibration slope, calibration-in-the-large (CITL), observed/expected (O/E) ratio, Brier score, and reliability diagrams (calibration plots). These metrics assess how well the predicted probabilities correspond to the actual observed event rates.
 
 Adaptability
 
@@ -97,22 +76,17 @@ The shared code is designed to be modular and adaptable. Researchers can use the
 
 Installation
 
-1.
 Clone the Repository:
 
-2.
 Set Up a Virtual Environment (optional but recommended):
 
-3.
 Install the Dependencies:
 
 Running the Code
 
-•
-Google Colab: The notebooks are optimized for Google Colab. Open the desired notebook directly in Colab to run the code in an interactive environment.
+• Google Colab: The notebooks are optimized for Google Colab. Open the desired notebook directly in Colab to run the code in an interactive environment.
 
-•
-Local Execution: Run the notebooks using Jupyter Notebook or JupyterLab:
+• Local Execution: Run the notebooks using Jupyter Notebook or JupyterLab:
 
 Reproducibility and Adaptation
 
@@ -126,11 +100,9 @@ If you find the code useful for your research, please cite the study as follows:
 
 Please also reference the trial registration numbers:
 
-•
-CaCIA Trial: ClinicalTrials.gov (NCT03108586)
+• CaCIA Trial: ClinicalTrials.gov (NCT03108586)
 
-•
-CARDEC 3 Trial: ClinicalTrials.gov (NCT03520309)
+• CARDEC 3 Trial: ClinicalTrials.gov (NCT03520309)
 
 Acknowledgements
 
@@ -139,4 +111,3 @@ We thank the research teams and all study participants whose efforts contributed
 License
 
 MIT License
-
